@@ -1,21 +1,28 @@
-
 const GOOGLE = 'google';
 const getGoogleMapsSrc = (version: string, apiKey: string) =>
-    `//maps.googleapis.com/maps/api/js?libraries=places&v=${version}&key=${apiKey}`;
+  `//maps.googleapis.com/maps/api/js?libraries=places&v=${version}&key=${apiKey}`;
 
-//
-// export class BalGoogleMapsService implements ThirdPartyApiService {
-//     constructor(private windowRefService: WindowRefService) {
-//     }
-//     isEnabled(): boolean {
-//         return this.windowRefService.nativeWindow[GOOGLE] != null
-//             && this.windowRefService.nativeWindow[GOOGLE].maps != null;
-//     }
-//     load(settings: { version: string, apiKey: string }): void {
-//         if (!this.isEnabled()) {
-//             this.windowRefService.loadScript(getGoogleMapsSrc(settings.version, settings.apiKey));
-//         } else {
-//             throw new Error('Google Maps API loaded already');
-//         }
-//     }
-// }
+export default class BalGoogleMaps {
+  public static isEnabled(): boolean {
+    return (window as any)[GOOGLE] != null
+      && (window as any)[GOOGLE].maps != null;
+  }
+
+
+  public static load(settings: { version: string, apiKey: string }): void {
+    if (!this.isEnabled()) {
+      this.loadScript(getGoogleMapsSrc(settings.version, settings.apiKey));
+    } else {
+      throw new Error('Google Maps API loaded already');
+    }
+  }
+
+
+  private static loadScript(src: string): void {
+    let node = document.createElement('script');
+    node.src = src;
+    node.type = 'text/javascript';
+    node.async = false;
+    document.getElementsByTagName('head')[0].appendChild(node);
+  }
+}
