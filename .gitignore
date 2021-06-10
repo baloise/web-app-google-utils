@@ -103,5 +103,6 @@ dist
 # TernJS port file
 .tern-portide
 
-
 .idea
+
+dist-transpiled

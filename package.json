@@ -1,5 +1,5 @@
 {
-  "name": "@baloise/google-lib-utils",
+  "name": "@baloise/web-app-google-utils",
   "version": "1.0.0",
   "description": "Utilities for google libraries for Baloise Web Applications",
   "scripts": {
