@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any */
+
 const GOOGLE = 'google';
 const getGoogleMapsSrc = (version: string, apiKey: string) =>
   `//maps.googleapis.com/maps/api/js?libraries=places&v=${version}&key=${apiKey}`;
@@ -19,7 +21,7 @@ export default class BalGoogleMaps {
 
 
   private static loadScript(src: string): void {
-    let node = document.createElement('script');
+    const node = document.createElement('script');
     node.src = src;
     node.type = 'text/javascript';
     node.async = false;
