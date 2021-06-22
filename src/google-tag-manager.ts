@@ -1,7 +1,13 @@
 const DATA_LAYER = 'dataLayer';
-/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any */
+const VIRTUAL_FUNNEL_CLICK = 'VirtualFunnelClick';
 
-export default class BalGoogconstagManager {
+/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any */
+export interface GtmSettings {
+  apiKey: string,
+  applicationName: string
+}
+
+export default class s {
   applicationName: string;
 
 
@@ -9,7 +15,7 @@ export default class BalGoogconstagManager {
     return (window as any)[DATA_LAYER] != null;
   }
 
-  public static load(settings: { apiKey: string }): void {
+  public static load(settings: GtmSettings): void {
     if (!this.isEnabled()) {
       this.runGtmScript(settings.apiKey);
     } else {
@@ -35,57 +41,19 @@ export default class BalGoogconstagManager {
       'https://www.googconstagmanager.com/gtm.js?id=' + apiKey + dl;
     f.parentNode.insertBefore(j, f);
   }
-  /* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call */
+  public sendClickEvent (label: string): void {
+    this.googleAnalyticsSendEvent({
+        event: VIRTUAL_FUNNEL_CLICK,
+        VirtualClickCategory: VIRTUAL_FUNNEL_CLICK,
+        VirtualClickAction: this.applicationName,
+        VirtualClickLabel: label,
+      },
+    );
+  };
 
-/*
-
-export const sendPageChangeEvent = (route: Route) => {
-    if (route && routeMapping[route.name as string]) {
-        googleAnalyticsSendEvent({
-            event: 'VirtualPageview',
-            ...routeMapping[route.name as string] as any,
-            products: [{
-                name: 'Bauversicherung',
-                id: '',
-                price: '',
-                brand: 'Unternehmenskunden',
-                category: 'Haftpflicht, Recht, Sachwerte',
-                variant: '',
-            }],
-        });
+  private googleAnalyticsSendEvent(event: any): void {
+    if ((window as any)[DATA_LAYER]) {
+      (window as any)[DATA_LAYER].push(event);
     }
-};
-export const sendEnhancedEcommerceTransaction = (premium: string) => {
-    googleAnalyticsSendEvent({
-        event: 'Enhanced_Ecommerce_Transaction',
-        ecommerce: {
-            purchase: {
-                actionField: {
-                    id: `LGTH-${(new Date()).getFullYear()}-${leftPadWithZeros(getRandomInt(1, 999999999), 9)}`,
-                    affiliation: 'Baloise',
-                },
-                products: [{
-                    id: '',
-                    name: 'Bauversicherung',
-                    price: premium,
-                    brand: 'Unternehmenskunden',
-                    category: 'Haftpflicht, Recht, Sachwerte',
-                    variant: '',
-                    quantity: 1,
-                }],
-            },
-        },
-    });
-};
-function googleAnalyticsSendEvent(event: any) {
-    const log = Vue.$createLogger('GoogleAnalytics');
-    if ((window as any).dataLayer) {
-        log.info(`Send event (${event.event}) to Google Analytics`);
-        (window as any).dataLayer.push(event);
-    } else {
-        log.info(`Could not send event (${event.event}) to Google Analytics`);
-    }
-}
-
- */
+  }
 }
