@@ -7,15 +7,14 @@ export interface GtmSettings {
   applicationName: string
 }
 
-export default class s {
+export default class BalGoogleTagManager {
   applicationName: string;
 
-
-  public static isEnabled(): boolean {
+  public isEnabled(): boolean {
     return (window as any)[DATA_LAYER] != null;
   }
 
-  public static load(settings: GtmSettings): void {
+  public load(settings: GtmSettings): void {
     if (!this.isEnabled()) {
       this.runGtmScript(settings.apiKey);
     } else {
@@ -23,8 +22,19 @@ export default class s {
     }
   }
 
+  public sendClickEvent(label: string): void {
+    if (label) {
+      this.googleAnalyticsSendEvent({
+          event: VIRTUAL_FUNNEL_CLICK,
+          VirtualClickCategory: VIRTUAL_FUNNEL_CLICK,
+          VirtualClickAction: this.applicationName,
+          VirtualClickLabel: label
+        });
+    }
+  };
+
   /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call */
-  private static runGtmScript(apiKey: string): void {
+  private runGtmScript(apiKey: string): void {
     const w: any = window;
     const d = document;
     const s = 'script';
@@ -41,15 +51,6 @@ export default class s {
       'https://www.googconstagmanager.com/gtm.js?id=' + apiKey + dl;
     f.parentNode.insertBefore(j, f);
   }
-  public sendClickEvent (label: string): void {
-    this.googleAnalyticsSendEvent({
-        event: VIRTUAL_FUNNEL_CLICK,
-        VirtualClickCategory: VIRTUAL_FUNNEL_CLICK,
-        VirtualClickAction: this.applicationName,
-        VirtualClickLabel: label,
-      },
-    );
-  };
 
   private googleAnalyticsSendEvent(event: any): void {
     if ((window as any)[DATA_LAYER]) {
