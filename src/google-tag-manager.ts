@@ -7,7 +7,7 @@ export interface GtmSettings {
   applicationName: string
 }
 
-export default class BalGoogleTagManager {
+export class BalGoogleTagManager {
   applicationName: string;
 
   public isEnabled(): boolean {
