@@ -17,8 +17,6 @@ export class BalGoogleTagManager {
   public load(settings: GtmSettings): void {
     if (!this.isEnabled()) {
       this.runGtmScript(settings.apiKey);
-    } else {
-      throw new Error('Google Tag Manager API loaded already');
     }
   }
 
