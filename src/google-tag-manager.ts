@@ -46,7 +46,7 @@ export class BalGoogleTagManager {
       j: any = d.createElement(s), dl = l != DATA_LAYER ? `&l={l}` : '';
     j.async = true;
     j.src =
-      'https://www.googconstagmanager.com/gtm.js?id=' + apiKey + dl;
+      'https://www.googletagmanager.com/gtm.js?id=' + apiKey + dl;
     f.parentNode.insertBefore(j, f);
   }
 
