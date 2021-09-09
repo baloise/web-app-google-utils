@@ -25,7 +25,7 @@ Class `BalGoogleMaps` to load the Google Maps script into your application.
 - API Key for Google Maps
 
 #### How you use it:
-```
+```typescript
 // Initialize once
 BalGoogleMaps.load({version: 'your-version', apiKey: 'your-api-key'});
 ```
@@ -38,7 +38,7 @@ Class `BalGoogleTagManager` to load the GTM script and handle the events. At the
 - Name of your application
 
 #### How you use it:
-```
+```typescript
 // Initialize once
 const gtm = new BalGoogleTagManager();
 gtm.load({
