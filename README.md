@@ -1,5 +1,5 @@
-# google-lib-utils
-Utilities for managing google plugins for Baloise Web Applications.
+# @baloise/web-app-google-utils
+Utilities for managing Google plugins (Maps & Tag Manager) in Baloise web applications.
 
 [![Continous](https://github.com/baloise/web-app-google-utils/actions/workflows/continous.yml/badge.svg?branch=master)](https://github.com/baloise/web-app-google-utils/actions/workflows/continous.yml)
 [![Release](https://github.com/baloise/web-app-google-utils/actions/workflows/release.yml/badge.svg?branch=master)](https://github.com/baloise/web-app-google-utils/actions/workflows/release.yml)
