@@ -1,7 +1,8 @@
 # google-lib-utils
 Utilities for managing google plugins for Baloise Web Applications.
 
-## Install
+## Installation guide
+### Using npm
 `npm i @baloise/web-app-google-utils`
 
 ## Components
