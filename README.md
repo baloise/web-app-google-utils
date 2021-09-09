@@ -1,6 +1,8 @@
 # google-lib-utils
 Utilities for managing google plugins for Baloise Web Applications.
 
+[![Continous](https://github.com/baloise/web-app-google-utils/actions/workflows/continous.yml/badge.svg?branch=master)](https://github.com/baloise/web-app-google-utils/actions/workflows/continous.yml)
+
 ## Installation guide
 ### Using npm
 `npm i @baloise/web-app-google-utils`
