@@ -2,6 +2,14 @@
 Utilities for managing google plugins for Baloise Web Applications.
 
 [![Continous](https://github.com/baloise/web-app-google-utils/actions/workflows/continous.yml/badge.svg?branch=master)](https://github.com/baloise/web-app-google-utils/actions/workflows/continous.yml)
+[![Release](https://github.com/baloise/web-app-google-utils/actions/workflows/release.yml/badge.svg?branch=master)](https://github.com/baloise/web-app-google-utils/actions/workflows/release.yml)
+
+![npm](https://img.shields.io/npm/v/@baloise/web-app-google-utils)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@baloise/web-app-google-utils)
+![npm](https://img.shields.io/npm/dt/@baloise/web-app-google-utils)
+![GitHub](https://img.shields.io/github/license/baloise/web-app-google-utils)
+![GitHub issues](https://img.shields.io/github/issues/baloise/web-app-google-utils)
+
 
 ## Installation guide
 ### Using npm
