@@ -12,8 +12,12 @@ Utilities for managing Google plugins (Maps & Tag Manager) in Baloise web applic
 
 
 ## Installation guide
+
 ### Using npm
-`npm i @baloise/web-app-google-utils`
+
+```bash
+npm i @baloise/web-app-google-utils
+```
 
 ## Components
 
