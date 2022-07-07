@@ -19,6 +19,10 @@ export class BalGoogleTagManager {
       this.runGtmScript(settings.apiKey);
     }
   }
+  
+  public loadForce(settings: GtmSettings): void {
+    this.runGtmScript(settings.apiKey);
+  }
 
   public sendClickEvent(label: string): void {
     if (label) {
