@@ -20,6 +20,7 @@ export class BalGoogleTagManager {
     }
   }
   
+  // should be avoided
   public loadForce(settings: GtmSettings): void {
     this.runGtmScript(settings.apiKey);
   }
