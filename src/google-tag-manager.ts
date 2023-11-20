@@ -19,8 +19,11 @@ export class BalGoogleTagManager {
       this.runGtmScript(settings.apiKey);
     }
   }
-  
-  // should be avoided
+
+  /**
+   * @deprecated this method should not be used
+   * @param settings GTM settings for application
+   */
   public loadForce(settings: GtmSettings): void {
     this.runGtmScript(settings.apiKey);
   }
@@ -35,6 +38,12 @@ export class BalGoogleTagManager {
         });
     }
   };
+
+  public sendCustomEvent(event: any): void {
+    if (event) {
+      this.googleAnalyticsSendEvent(event);
+    }
+  }
 
   /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call */
   private runGtmScript(apiKey: string): void {
