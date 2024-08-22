@@ -12,7 +12,7 @@ export class BalGoogleTagManager {
 
   public isEnabled(): boolean {
     const win = window
-    return win && ((win as any)[DATA_LAYER] != null || win.localStorage.getItem('ga_debug_mode') === 'true');
+    return win && (win as any)[DATA_LAYER] != null && win.localStorage.getItem('ga_debug_mode') !== 'true';
   }
 
   public load(settings: GtmSettings): void {
