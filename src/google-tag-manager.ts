@@ -11,7 +11,8 @@ export class BalGoogleTagManager {
   applicationName: string;
 
   public isEnabled(): boolean {
-    return (window as any)[DATA_LAYER] != null;
+    const win = window
+    return win && ((win as any)[DATA_LAYER] != null || win.localStorage.getItem('ga_debug_mode') === 'true');
   }
 
   public load(settings: GtmSettings): void {
@@ -31,11 +32,11 @@ export class BalGoogleTagManager {
   public sendClickEvent(label: string): void {
     if (label) {
       this.googleAnalyticsSendEvent({
-          event: VIRTUAL_FUNNEL_CLICK,
-          VirtualClickCategory: VIRTUAL_FUNNEL_CLICK,
-          VirtualClickAction: this.applicationName,
-          VirtualClickLabel: label
-        });
+        event: VIRTUAL_FUNNEL_CLICK,
+        VirtualClickCategory: VIRTUAL_FUNNEL_CLICK,
+        VirtualClickAction: this.applicationName,
+        VirtualClickLabel: label
+      });
     }
   };
 
