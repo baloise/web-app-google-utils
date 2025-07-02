@@ -14,6 +14,12 @@ export default {
             preferConst: true,
             sourcemap: true,
         },
+        {
+            dir: "dist/",
+            entryFileNames: "[name].[format].js",
+            format: "iife",
+            sourcemap: true,
+        },
     ],
     external: [],
 };
